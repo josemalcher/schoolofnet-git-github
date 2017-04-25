@@ -29,6 +29,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Falando sobre branches](#parte11)
 
+[Criando primeiro branch](#parte12)
+
 
 ---
 
@@ -648,6 +650,63 @@ Suponham que, temos outro desenvolvedor que criará um sistema de estoque e este
 Esta ramificação não tem limite, vocês podem ramificar o projeto de acordo com a necessidade que tiverem. O merge continua do mesmo jeito, mas, geralmente, costumamos dar um merge, de acordo com a hierarquia. Primeiro, daríamos um merge do sistema de estoque para o sistema de produtos e depois, outro merge, do sistema de produtos para o branch master, que é a aplicação raiz.
 
 Observem que é um assunto mais complexo, mas não é complicado para entender. Basta projetarem, muito bem a aplicação, e dividirem, corretamente, a equipe. Desta forma, o projeto caminha em paralelo, com diversas funcionalidades sendo desenvolvidas, ao mesmo tempo, e de forma organizada. O que é mais interessante, tudo versionado, podendo retornar e arrumar erros, em qualquer ponto do projeto.
+
+---
+
+## <a name="parte12">Criando primeiro branch</a>
+
+Neste módulo trabalharemos com branchs. No módulo anterior falamos bastante sobre a ideia principal dos branchs e agora veremos a criação.
+
+No repositório atual, temos os seguintes arquivos:
+
+- ARQUIVO.TXT
+- TESTE.PHP
+- TESTE2.TXT
+- TESTE3.TXT
+- TESTE4.TXT
+
+Suponham que este é o nosso projeto e que precisamos criar uma ramificação para o desenvolvimento de uma funcionalidade qualquer, ou seja, um novo branch.
+
+```
+$ git checkout -b funcionalidade1
+```
+
+Este comando é responsável pela criação do branch. É muito importante não esquecerem de que o branch é criado de acordo com o branch em que você estiver, na hora do comando. Se estiverem no master, criarão um branch a partir do master, se estiverem em outro branch, e derem o comando, criarão um branch a partir deste branch e, assim por diante. É assim que os projetos vão se ramificando.
+
+Uma forma de saberem em qual branch estão é rodar o comando: ```$ git branch```
+
+Com este comando, tivemos o seguinte resultado:
+
+```
+* funcionalidade1
+  master
+```
+
+Isso acontece porque, quando criamos o branch, ele já acessa, automaticamente. Quando criamos um novo repositório, sempre estaremos no branch master.
+
+Estando no branch funcionalidade1, criaremos um arquivo chamado funcionalidade1.txt. Após criarem este arquivo, adicionem-o e deem um commit. Em seguida, voltem para o branch master, com o seguinte comando:
+
+```
+$ git checkout master
+```
+
+O comando para acessar e criar é o mesmo, mas para criação, passamos o parâmetro -b.
+
+No branch master, listem os arquivos, utilizando o comando ```$ ls```. Pronto, vocês verão que este arquivo não faz parte deste branch master, mas sim do branch funcionalidade1, somente. Não estamos falando, apenas, do arquivo estar ou não, fisicamente, na pasta. Estamos falando do log, de forma que, se listarem os logs ```$ git log```, vocês não verão o commit que fizeram no outro branch.
+
+O mesmo ocorre se fizerem uma alteração em qualquer arquivo do branch master e comitar. Esta alteração não será enxergada no branch funcionalidade1 e nem fará parte do código.
+
+Cada branch será, totalmente, independente, até que seja feito um merge.
+
+Trabalhar com branch não tem muito segredo e não existem muitos outros comandos, além dos que apresentamos. O mais importante é entenderem a importância que eles tem para um projeto e o quanto eles auxiliam o desenvolvimento em equipe.
+
+Já falamos, no módulo anterior, que não existem limites para os branchs. Vocês podem criar quantos quiserem. Nós indicamos a criação de um branch, sempre que forem desenvolver uma nova funcionalidade, para que não fiquem criando branch, desnecessariamente.
+
+Antigamente, com outros sistemas de controle de versão, a história era bem diferente e mais complexa, mas o Git veio para isso mesmo, para auxiliar e facilitar a vida dos desenvolvedores.
+
+Lembrando que, existir um commit dentro de um branch, não significa que os arquivos estejam naquele branch, eles apenas estão apontados, muitas vezes.
+
+Já sabem o conceito. Basta criarem muitos branchs, arquivos diferentes em cada branch e sair trocando de um para outro, para testarem os commits. Desta forma, este processo se torna, automático e muito simples, para você. O melhor jeito de aprender é praticando.
 
 ---
 
