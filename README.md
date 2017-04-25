@@ -33,6 +33,7 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Merge e Rebase](#parte13)
 
+[Falando sobre o github])(#parte14)
 
 
 ---
@@ -764,3 +765,25 @@ Fast-forwarded master to funcionalidade1.
 Observem que, primeiro ele organizou os commits, para depois fazer o mesmo trabalho do merge, unindo as modificações do branch funcionalidade1 com o master.
 
 Para verificarem este processo, basta rodarem um git log e terão o commit do branch funcionalidade1, antes do commit do master. Vale lembrar que, não haverá mais o commit do merge. Isso significa que estamos gerando um commit a menos.
+
+---
+
+## <a name="parte14">Falando sobre o github</a>
+
+Falaremos sobre o Github, que é um serviço disponibilizado na internet e é muito útil para os desenvolvedores e comunidades, de diversos segmentos.
+
+O Github é um serviço online, que disponibiliza repositórios Git, ou seja, é uma forma de trabalhar com o Git, mas de forma centralizada. Podemos desenvolver a aplicação, localmente, e quando quisermos, podemos subí-la para um repositório online e centralizar o conteúdo.
+
+Desta forma, podemos manter o código fora da nossa máquina e também colaborar com outras pessoas. O mais legal do projeto é que hoje, o Github é o serviço online, mais utilizado pelos desenvolvedores, porque ele, simplesmente, dá uma conta gratuita, para os usuários que pensam em desenvolver códigos open sources. Ele acaba sendo uma comunidade. Vocês conseguem seguir repositórios, criar seus próprios repositórios e inúmeras outras, funcionalidades.
+
+Nos conteúdos da School of Net, utilizamos muito o Github para disponibilizar alguns códigos e exemplos, para quem lê o material.
+
+Indicamos o contato com o Github, caso nunca tenham ouvido falar, porque a partir de agora, que aprenderam a trabalhar com Git, vocês podem começar a desenvolver seus projetos de forma organizada. Se for um projeto próprio e particular, existem repositórios privados, que vocês podem contratar o serviço. Nunca mais vocês correrão o risco de manterem o código em suas máquinas e perderem todo trabalho desenvolvido. Mantenham a cópia local e em um repositório online, sempre. Utilizando o Github.
+
+Se vocês ainda não possuem uma conta no Github, pedimos para criarem uma, agora mesmo. Para vocês se acostumarem com a ferramenta. Leiam os conteúdo sobre, mexam muito nos recursos, para que vocês possam conhecer todos os recursos disponíveis, neste serviço maravilhoso.
+
+Quando vocês logam no Github e acessam a página inicial, vocês tem o controle de todos os commits que já executaram. Conseguem ver quantas pessoas o seguem, como estão suas contribuições, com outros projetos e etc.
+
+Com o Github, vocês acabam tendo a oportunidade de participar de grandes projetos, open sources, e acaba sendo uma vitrine enorme, para seus trabalhos. Também, às vezes, tem a oportunidade de participarem de um projeto real, que é muito mais vantajoso do que muitos outros projetos pessoais ou treinamentos e até mesmo, faculdades. Nem sempre isso acontece, mas é sempre muito bom, fazer parte de outros projetos e ajudá-los.
+
+O único problema é que, para você poder participar destes projetos open sources, vocês precisam saber das técnicas e dinâmicas do Github. É esta base que daremos, para que possam contribuir com o projeto que acharem melhor e mais proveitoso, para o crescimento de vocês.
