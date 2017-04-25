@@ -480,3 +480,110 @@ Untracked files:
 Após prepararem todo o commit, deixando somente os arquivos que deverão fazer parte dele, basta realizarem o commit. Saibam que, depois do commit, vocês não conseguem, fazer mais nada, somente voltar a versão anterior. Façam tudo que tiverem que fazer, antes do commit.
 
 ---
+
+### Voltando versões
+
+Ensinaremos como voltar um commit de maneira muito fácil e descomplicada.
+
+No módulo passado, adicionamos 3 arquivos e depois removemos, um deles, utilizando o reset HEAD. Neste momento, estamos com a mesma situação, em nosso terminal.
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   teste3.txt
+    new file:   teste4.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    teste2.txt
+```
+
+Falaremos sobre voltar versões, porque esta é a grande finalidade de trabalhar com versões, se não fosse isso, não teria sentido trabalhar com elas.
+
+Existem diversas formas de voltar uma versão. Umas mais simples, outras mais complicadas. No final, temos o mesmo efeito, que é a volta para alguma versão específica.
+
+Uma das maneiras mais simples é, utilizando o comando checkout, passando o hash do commit. Vejam o exemplo abaixo:
+
+```
+commit a7e09ab07b1f6622a49ebfb59fc76c77358d6caf
+Author: Thiago Valls <thiago@schoolofnet.com>
+Date:   Thu Mar 9 04:23:23 2017 -0300
+```
+
+
+    - Criando arquivo teste
+    - Fazendo arquivo teste.oho dar um echo teste
+
+```
+$ git checkout a7e09ab07b1f6622a49ebfb59fc76c77358d6caf
+```
+
+Observem que pegamos o hash, de um dos commits listados pelo git log. Vocês, com certeza, terão outro hash na listagem, basta executarem o mesmo comando, com algum hash de commit, da listagem.
+
+Após rodarem este comando, temos uma mensagem informando que o nosso estado atual está apontando para o commit que informamos no comando checkout.
+
+```
+A   teste3.txt
+A   teste4.txt
+Note: checking out 'a7e09ab07b1f6622a49ebfb59fc76c77358d6caf'.
+
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+git checkout -b <new-branch-name>
+
+
+HEAD is now at a7e09ab... - Criando arquivo teste - Fazendo arquivo teste.oho dar um echo teste
+```
+
+Notem que não voltamos, ainda não assumimos, totalmente, este commit como sendo o atual. Para que pudéssemos trabalhar com os arquivos atuais e os arquivos do commit, que selecionamos, o Git cria uma nova camada, chamada branch. Falaremos mais sobre branchs, em módulos posteriores, mas gostaríamos de mostrar que isso é verdade. Para isso, rodem o comando abaixo:
+
+```
+$ git branch
+```
+
+Vocês terão o seguinte resultado:
+
+```
+* (HEAD detached at a7e09ab)
+  master
+```
+
+Geralmente, todas as alterações feitas, são no branch master, mas vocês podem ver que estamos trabalhando em outro branch, o qual está marcado com um asterísco.
+
+Vamos supor que já viram o que tinham que ver nesta versão que acessaram, basta retornar para a versão master, e ignorar este branch que foi criado.
+
+```
+$ git checkout master
+```
+
+Outra forma de acessar commits anteriores, é com o seguinte comando:
+
+```
+$ git reset HEAD~1 ou $ git reset HEAD~2 ou $ git reset HEAD~3
+```
+
+Observem que, vocês voltam, quantos commits quiserem, basta alterarem o último número que é o índice do HEAD. Colocando 1, vocês retornam um commit, 2 vocês retornam dois, assim por diante.
+
+Porém, existem dois tipos de reset HEAD: soft e hard.
+
+```
+$ git reset HEAD~1 --soft ou $ git reset HEAD~1 --hard
+```
+
+Soft: remove todos os commits, posteriores, voltando-os para o estágio anterior que é changed to be commited, mas ele os mantêm na pasta, para que possam ser adicionados, novamente.
+
+Hard: remove todos os commits, posteriores à versão acessada, e também, os arquivos que a eles perteciam.
+
+Isso significa que, vocês devem tomar muito cuidado com o parâmetro hard, a não ser que queiram ignorar todas as alterações feitas, posteriormente, àquela versão que você acessou.
+
+Desta forma, vocês podem trabalhar com as "idas e vindas" de suas versões. Basta praticarem, bastante, e fazerem testes para fixarem o conteúdo.
+
+---
