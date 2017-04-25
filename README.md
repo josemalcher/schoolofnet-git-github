@@ -5,7 +5,14 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 ---
 
-## Falando sobre sistemas de controle de versão
+## Índice
+
+[Falando sobre sistemas de controle de versão](#parte1)
+
+História do Git
+
+
+## <a name="parte1">Falando sobre sistemas de controle de versão</a>
 Bem-vindos ao módulo de Git e Github.
 
 Para os que não conhecem o Git, ele é um sistema de controle de versão de código. Daqui pra frente, todo código que forem desenvolver, vocês deverão utilizar este sistema, pois, dessa maneira, nunca mais correrão o risco de perder todo o trabalho de horas, ou até mesmo, meses.
