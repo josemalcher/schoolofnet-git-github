@@ -33,8 +33,9 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Merge e Rebase](#parte13)
 
-[Falando sobre o github])(#parte14)
+[Falando sobre o github](#parte14)
 
+[Criando chave para o github](#parte15)
 
 ---
 
@@ -787,3 +788,55 @@ Quando vocês logam no Github e acessam a página inicial, vocês tem o controle
 Com o Github, vocês acabam tendo a oportunidade de participar de grandes projetos, open sources, e acaba sendo uma vitrine enorme, para seus trabalhos. Também, às vezes, tem a oportunidade de participarem de um projeto real, que é muito mais vantajoso do que muitos outros projetos pessoais ou treinamentos e até mesmo, faculdades. Nem sempre isso acontece, mas é sempre muito bom, fazer parte de outros projetos e ajudá-los.
 
 O único problema é que, para você poder participar destes projetos open sources, vocês precisam saber das técnicas e dinâmicas do Github. É esta base que daremos, para que possam contribuir com o projeto que acharem melhor e mais proveitoso, para o crescimento de vocês.
+
+---
+
+## <a name="parte15">Criando chave para o github</a>
+
+Mostraremos como fazer para gerar uma chave pública, para o Github. Se vocês nunca ouviram falar, não se preocupem, explicaremos.
+
+Toda vez que vocês criarem um repositório no Github e forem fazer um push, o Github pedirá autenticação. Como somos desenvolvedores e precisamos enviar estes arquivos o tempo todo, não seria legal ficar digitando toda vez, no terminal, seu login e senha, para conseguirem efetuar este push.
+
+Falaremos mais sobre push em outros módulos, para explicar melhor este comando.
+
+Em vez de fazerem isso, criaremos uma chave de autenticação.
+
+Para este processo rodaremos um comando, em nosso terminal, que gerará dois arquivos.
+
+Uma chave criptografada privada
+Uma chave criptografada pública
+Esta chave privada, sempre, ficará no computador e vocês, jamais, compartilharão com ninguém. A pública, vocês podem compartilhar com diversos serviços, inclusive o Github.
+
+Compartilhando esta chave com o Github, sempre que forem executar qualquer operação no Github, o serviço verificará se a chave pública confere com a chave privada da nossa máquina. O Github verificará, se realmente, se trata de um par, caso ele identifique, a operação é liberada, sem precisar de login e senha.
+
+Esta autenticação acaba sendo muito mais segura do que trabalhar com usuário e senha.
+
+Gerando chaves no computador
+Entre em seu terminal e digite o comando abaixo:
+
+```
+$ ssh-keygen
+```
+
+Este comando mostrará o caminho em que as chaves serão geradas e pede confirmação. Caso não exista nenhuma chave criada, ele já criará, automaticamente. Se existir, ele perguntará se quer sobrescrever.
+
+Como vocês sabem se a chave está gerada e onde estão os arquivos? Vocês precisam acessar o caminho informado na criação e listar os arquivos internos. Vejam o comando abaixo:
+
+Primeiro ```$ cd ~/.ssh/``` depois ```$ ls.```
+
+Vocês deverão encontrar os arquivos:
+
+- ID_RSA
+- ID_RSA.PUB
+
+Observem que o arquivo que tem a extensão .pub se trata da chave pública que iremos compartilhar com os serviços. Para pegar o conteúdo deste arquivo, rodem o seguinte comando:
+
+```
+$ cat id_rsa.pub
+```
+
+E seguida, copiem o código para adicionarem ao Github. Vocês podem abrir o arquivo em algum bloco de notas, se preferirem. O importante é copiarem o conteúdo deste arquivo.
+
+Para cadastrarem no Github, acessem Account Settings e depois cliquem em SSH Keys. Neste local, observem que existe a possibilidade de cadastrarem diversas chaves. Criem uma nova chave. Vocês podem adicionar uma descrição para cada chave, para saberem a qual máquina ela pertence.
+
+No campo da chave, vocês colarão o conteúdo copiado e clicarão em add key. Depois disso, já teremos uma nova chave configurada e, a partir deste momento, todas as operações que forem efetuadas, do computador para o repositório online, não precisarão mais de autenticação por login e senha.
