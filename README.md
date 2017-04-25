@@ -31,6 +31,9 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Criando primeiro branch](#parte12)
 
+[Merge e Rebase](#parte13)
+
+
 
 ---
 
@@ -710,3 +713,54 @@ Já sabem o conceito. Basta criarem muitos branchs, arquivos diferentes em cada 
 
 ---
 
+## <a name="parte13">Merge e Rebase</a>
+
+No módulo passado, vocês aprenderam a criar branchs e a trabalharem com eles. Viram a importância dos mesmos.
+
+Merge
+Agora, mostraremos como fazer para mesclar os branchs, para que as funcionalidades se somem em um mesmo branch. O comando para fazer esta mesclagem chama-se merge.
+
+Temos o branch funcionalidade1 e o branch master, em nosso exemplo.
+
+Existem dois tipos de merge: um mais simples e outro um pouco mais complexo. O mais simples é quando criamos um branch e fazemos alteração apenas no branch. Suponham que tivéssemos criado a funcionalidade e no branch master não tivéssemos feito mais nada, nem ter dado commit. Esta é a situação mais simples e o branch mais fácil que existe.
+
+Mas, não foi o que aconteceu em nosso exemplo. Lembrem-se que, no módulo anterior, além de criarmos um arquivo no branch funcionalidade1, pedimos que alterassem um arquivo, no branch master. Temos alterações e commits, nos dois branchs.
+
+Isso significa que, o branch funcionalidade1 não possui um dos commits que o master possui. Acessem o branch master e rodem o comando abaixo:
+
+```
+$ git merge funcionalidade1
+```
+
+Este comando se comporta como um commit e abre um editor para que adicionemos uma mensagem de identificação. Depois de rodarem este arquivo teremos, tanto os commits existentes no branch funcionalidade1, quanto os arquivos que lá foram criados.
+
+Poderíamos ter feito o inverso, de dentro do branch funcionalidade1, rodar um merge no branch master.
+
+Existe uma forma de gerar um merge, sem que ele gere um commit, porque nem sempre é legal gerar um commit novo a cada merge, no projeto. Este comando só pode ser rodado, localmente, para que não gere confusão para outros usuários do repositório.
+
+Rebase
+
+Para exemplificar o rebase, removeremos o último commit, relacionado ao merge.
+
+```
+$ git reset HEAD~1 --hard
+```
+
+Voltamos o último commit, temos o mesmo cenário, do início do módulo anterior.
+
+Lembrando a ordem que fizemos a alteração, podemos dizer que temos primeiro um commit no branch funcionalidade1 e depois um branch no master. Porque, logo que criamos o branch funcionalidade1, já criamos o arquivo e fizemos o commit. Em seguida, fomos para o master, alteramos um arquivo e fizemos o commit.
+
+Por que estamos falando de ordem? Porque o rebase fará a mesma coisa que um merge, mas levando em consideração a ordem dos commits. Por este motivo que ele deve ser feito, somente, em suas máquinas, porque ele fará o merge na sequência correta. Isso quer dizer que, quando vocês derem um git log, terão a sequência, exata, de commits que realizaram.
+
+Suponham fazer isso, em um projeto, sem ser localmente. O commit de um desenvolvedor pode ir parar 10 logs abaixo de outro, e isso pode bagunçar o projeto e confundir muita gente, mas, feito localmente, não terão problema.
+
+```
+$ git rebase funcionalidade1
+```
+```
+First, rewinding head to replay your work on top of it...
+```
+Fast-forwarded master to funcionalidade1.
+Observem que, primeiro ele organizou os commits, para depois fazer o mesmo trabalho do merge, unindo as modificações do branch funcionalidade1 com o master.
+
+Para verificarem este processo, basta rodarem um git log e terão o commit do branch funcionalidade1, antes do commit do master. Vale lembrar que, não haverá mais o commit do merge. Isso significa que estamos gerando um commit a menos.
