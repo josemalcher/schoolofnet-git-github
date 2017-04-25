@@ -9,7 +9,28 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Falando sobre sistemas de controle de versão](#parte1)
 
-História do Git
+[História do Git](#parte2)
+
+[Sistema centralizado vs descentralizado](#parte3)
+
+[Configuração inicial](#parte4)
+
+[Os 3 estágios](#parte5)
+
+[Realizando primeiro commit](#parte6)
+
+[Verificando log](#parte7)
+
+[Ignorando arquivos](#parte8)
+
+[Brincando com fluxo de commits](#parte9)
+
+[Voltando versões](#parte10)
+
+
+
+
+
 
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -41,7 +62,7 @@ Preparem-se para entrarem no mundo de sistemas controladores de versões.
 
 ---
 
-## História do Git
+## <a name="parte2">História do Git</a>
 Neste módulo, faremos uma breve introdução sobre a história do Git.
 
 Esta introdução é importante para que vocês possam entender o contexto e saberem em que nível estamos em relação a controle de versões e tecnologias, no mundo Open Source.
@@ -64,7 +85,7 @@ Falaremos mais sobre isso, nos próximos módulos. Sempre lembrem que, quando fa
 
 ---
 
-## Sistema centralizado vs descentralizado
+## <a name="parte3">Sistema centralizado vs descentralizado</a>
 Neste módulo falaremos, especificamente, sobre a diferença entre sistema de controle de versão centralizado e descentralizado.
 
 Para começarmos a explicar, podemos falar de dois sistemas: CVS e SVN, ou Subversion. Nestes modelos de sistemas, normalmente, existe um repositório central, que armazenamos todo o código. Quando precisamos fazer alguma alteração, baixamos o código, fazemos a alteração e depois, fazemos um commit. O commit é o momento em que informamos, ao sistema, que estamos gerando uma versão daquela alteração que acabamos de fazer.
@@ -95,7 +116,7 @@ Esperamos que tenham entendido a diferença entra sistema de controle de versão
 
 ---
 
-## Configuração inicial
+## <a name="parte4">Configuração inicial</a>
 Neste módulo mostraremos quais as principais configurações que vocês deverão realizar para trabalharem com o Git. Tratam-se de dois comandos, apenas, para que isso seja possível.
 
 O primeiro passo será abrir o terminal, se estiverem no Mac ou Linux. Se estiverem utilizando Windows, podem utilizar o Git Bash, que vem junto com o Git. Não utilizem o prompt do MS-DOS, porque ele é muito ruim. O Git Bash simulará um ambiente Unix para facilitar o trabalho.
@@ -132,7 +153,7 @@ Estamos com as configurações em dia e prontos para começar a utilizar o Git. 
 
 ---
 
-## Os 3 estágios
+## <a name="parte5">Os 3 estágios</a>
 Mostraremos como criar o primeiro repositório Git e quais são os três, principais, estágios do processo. Utilizaremos alguns comandos, que talvez vocês não conheçam, para mostrar o processo. Fiquem tranquilos, falaremos sobre eles nos próximos módulos. Por enquanto, apresentaremos o processo completo, para que vocês tenham uma visão geral.
 
 Criando um repositório
@@ -236,7 +257,7 @@ Acreditem! Se quiserem ser desenvolvedores, terão que dominar o Git em todos os
 
 ---
 
-## Realizando primeiro commit
+## <a name="parte6">Realizando primeiro commit</a>
 
 Neste módulo, vocês farão o primeiro commit em um repositório online.
 
@@ -308,7 +329,7 @@ Acreditem! Vocês utilizarão estes comandos, o tempo todo. Pratiquem muito.
 
 ---
 
-## Verificando log
+## <a name="parte7">Verificando log</a>
 
 Já vimos o comando git log e sabemos que ele lista os commits efetuados. Neste módulo, ensinaremos um pouco mais sobre este comando e como trabalharem com ele.
 
@@ -386,7 +407,7 @@ Como já falamos, não tentem decorar, mas pratiquem muito e deixem alguns coman
 
 ---
 
-# Ignorando arquivos
+## <a name="parte8">Ignorando arquivos</a>
 
 Falaremos dos arquivos indesejados em nossas aplicações, ou seja, existem arquivos ou pastas, que não queremos que façam parte do controle de versão. Porém, estes arquivos podem ser alterados com frequência. Suponham que, toda vez, vocês tenham que adicionar e comitar arquivos que não eram para ser comitados.
 
@@ -420,7 +441,7 @@ Vocês acabaram de aprender o conceito do arquivo .gitignore. Para trabalharem c
 
 ---
 
-### Brincando com fluxo de commits
+### <a name="parte9">Brincando com fluxo de commits</a>
 
 Explicaremos como funciona toda a estrutura de fluxo de commits.
 
@@ -448,8 +469,6 @@ Simularemos um outro caso, muito normal no dia a dia do programador, que é adic
 $ touch teste3.txt
 $ touch teste4.txt
 ```
-
-
 
 Se rodarmos o git status, teremos 3 arquivos no estágio untracked files. Adicionaremos todos, com o comando $ git add . e depois removeremos, apenas, um deles.
 
@@ -488,7 +507,7 @@ Após prepararem todo o commit, deixando somente os arquivos que deverão fazer 
 
 ---
 
-### Voltando versões
+## <a name="parte10">Voltando versões</a>
 
 Ensinaremos como voltar um commit de maneira muito fácil e descomplicada.
 
@@ -594,3 +613,4 @@ Isso significa que, vocês devem tomar muito cuidado com o parâmetro hard, a n�
 Desta forma, vocês podem trabalhar com as "idas e vindas" de suas versões. Basta praticarem, bastante, e fazerem testes para fixarem o conteúdo.
 
 ---
+
