@@ -49,6 +49,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Github - Dicas gerais](#parte21)
 
+[Trabalhando com tags](#parte22)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -1257,9 +1259,9 @@ O dono do repositório, comparará o código original dele com suas alterações
 
 IMG
 
-![github Clone](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_pullrequest.png)
+![github pull](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_pullrequest.png)
 
-![github Clone](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_pullrequest_diff.png)
+![github pull](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_pullrequest_diff.png)
 
 
 Na primeira imagem, mostramos um exemplo, de um repositório qualquer, que possuem 3 pull requests. Isso quer dizer que são 3 colaboradores querendo aplicar modificações, ou melhorias, no projeto.
@@ -1268,11 +1270,46 @@ Na segunda imagem, mostramos uma parte das alterações que foram feitas. Seriam
 
 Existe uma maneira de acompanharem todas as alterações e evoluções de um projeto no Github. Basta selecionarem o watch e o star. Com isso, vocês estão informando para o Github que se interessam por aquele repositório e que cada alteração que ele tiver, vocês querem ser informados.
 
-![github Clone](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_watch_star.png)
+![github Watch](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_watch_star.png)
 
 Estas são as dicas, básicas, para que vocês consigam trabalhar com o Github, não só como um repositório para seus projetos, mas como uma comunidade que pode se ajudar e melhorar os códigos, uns dos outros.
 
 [Voltar ao Índice](#indice)
 
 ---
+
+## <a name="parte22">Trabalhando com tags</a>
+
+Neste módulo, falaremos sobre as tags e como elas podem ser úteis.
+
+Tags, são marcadores e funcionam como releases do nosso projeto, ou seja, versões. A cada nova versão, podemos gerar uma tag e, desta forma, as pessoas conseguem ter acesso à versões anteriores, do projeto.
+
+Tags podem ser vistas como ponteiros, que apontam para um determinado commit. Quer dizer que, uma determinada tag aponta para um determinado commit e sua atual situação e arquivos.
+
+Gerando a primeira tag
+Acessem o branch master do projeto e rodem o seguinte comando.
+
+```
+$ git tag 0.1.0
+$ git tag -l
+```
+
+O primeiro comando gera a tag e o segundo, lista todas as tags que existirem, localmente.
+
+Subindo a tag para geração do release/versão:
+
+```
+$ git push origin master --tags
+```
+
+Desta forma, estamos subindo todas as tags, locais, para o repositório remoto.
+
+![github Tag](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_release.png)
+
+![github Tag](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_release_1.png)
+
+[Voltar ao Índice](#indice)
+
+---
+
 
