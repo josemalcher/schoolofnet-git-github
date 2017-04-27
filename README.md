@@ -41,6 +41,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Primeiro push](#parte17)
 
+[Dando push em outro branch](#parte18)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -927,6 +929,8 @@ Depois destes procedimentos, o repositório já está criado. No próximo módul
 
 Criem seus repositórios, para praticarem.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <link name="parte17">Primeiro push</a>
@@ -996,6 +1000,46 @@ Depois de enviar, acessem o repositório online, para verificarem os arquivos e 
 ![github push](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github.png)
 
 Observem que todas as informações de commits e branchs foram enviadas, juntamente, com o nosso push. Significa que temos uma cópia do nosso repositório local em um repositório remoto, centralizando nosso projeto.
+
+[Voltar ao Índice](#indice)
+
+---
+
+## <link name="parte18">Dando push em outro branch</a>
+Agora que já fizemos o push normal, enviando o branch master para o repositório remoto, ensinaremos como enviar um novo branch.
+
+Temos, em nosso exemplo, um branch chamado funcionalidade1. O procedimento é acessar este branch e, em seguida, dar um push deste repositório, para o Github.
+
+
+```
+$ git checkout funcionalidade1
+```
+
+Depois de acessarem, rodem o push.
+
+```
+$ git push origin funcionalidade1
+```
+
+Após rodarem o push, teremos a seguinte mensagem do Git.
+
+```
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/schoolofnetcom/git-code-education.git
+ * [new branch]      funcionalidade1 -> funcionalidade1
+```
+
+Vejam que ele informou que foi enviado de funcionalidade1 local para funcionalidade1 remoto. Quando não existe o branch, ele cria, automaticamente. Vocês poderiam colocar outro nome no repositório remoto, caso quisessem, mas não é muito indicado, para não haver confusão.
+
+Depois de terem enviado, vamos conferir se, realmente, o branch foi criado, remotamente.
+
+![github branch](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github_branch.png)
+
+Na imagem, mostramos os dois branchs criados e onde vocês podem alterar o branch online.
+
+Vocês já sabem como enviar seus branchs para o repositório remoto. Daremos continuidade ao conteúdo.
+
+[Voltar ao Índice](#indice)
 
 ---
 
