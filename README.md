@@ -39,6 +39,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Criando um repositório](#parte16)
 
+[Primeiro push](#parte17)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -926,3 +928,74 @@ Depois destes procedimentos, o repositório já está criado. No próximo módul
 Criem seus repositórios, para praticarem.
 
 ---
+
+## <link name="parte17">Primeiro push</a>
+
+Neste módulo vocês aprenderão a realizar o primeiro push.
+
+Antes de realizarmos o procedimento e falarmos dos comandos, explicaremos o que é o push.
+
+O push, em inglês, é "empurrar". Para o nosso cenário ele significa, praticamente, isso mesmo. Quando vocês tem o repositório local e querem enviar os commits para um repositório online, para centralizar o conteúdo, vocês podem subir, seus arquivos, para um repositório online, por segurança, ou até mesmo, para compartilharem o código com outros desenvolvedores.
+
+Então, para que vocês consigam trabalhar com o git push, precisam adicionar um repositório remoto. Vocês adicionam esta configuração, informando o endereço do repositório online, para que, toda vez que efetuarem um push, o Git saiba para onde enviar os arquivos.
+
+Para criarem este link e configurarem o repositório local, temos o seguinte comando:
+
+```
+$ git remote add origin https://github.com/schoolofnetcom/git-code-education.git
+```
+
+Vocês podem ver que o comando é bem intuitivo, a única particularidade é o origin. Muitos pensam que esta palavra faz parte do comando, mas, trata-se, apenas, de um apelido que vocês darão para o repositório remoto. Sabendo disso, vocês poderiam utilizar qualquer outro nome, mas não é muito recomendada a alteração, uma vez que é uma convenção e a maioria utiliza o origin.
+
+Após rodarem o comando, com o endereço do repositório online, vocês já podem enviar os arquivos para o repositório online, com o comando push.
+
+Para saberem onde o Git guarda estas configurações, informaremos o local de armazenamento.
+
+Abram o arquivo chamado config, que está dentro da pasta oculta do Git, no repositório local.
+
+```
+$ vim .git/config
+
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        precomposeunicode = true
+[remote "origin"]
+        url = https://github.com/schoolofnetcom/git-code-education.git
+        fetch = +refs/heads/\*:refs/remotes/origin/*
+```
+
+Vejam que neste arquivo ele guarda as informações necessárias para o repositório remoto. Todas as configurações, que vocês fizerem no repositório, ficará neste arquivo de configuração.
+
+Agora que já configuramos, enviaremos os nossos arquivos para o repositório online.
+
+```
+$ git push origin master
+```
+
+O comando diz: "empurre o meu branch master para o repositório origin". Isso significa que estamos subindo todos os arquivos e commits para o repositório online.
+
+```
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 560 bytes | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/schoolofnetcom/git-code-education.git
+ * [new branch]      master -> master
+```
+
+Vejam que no resultado do comando, o Git informa que foi criado um novo branch, chamado master, no repositório online. Em seguida, ele informa que está enviando do branch master local para o branch master online.
+
+Depois de enviar, acessem o repositório online, para verificarem os arquivos e informações.
+
+![Branchs](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github.png)
+
+Observem que todas as informações de commits e branchs foram enviadas, juntamente, com o nosso push. Significa que temos uma cópia do nosso repositório local em um repositório remoto, centralizando nosso projeto.
+
+---
+
