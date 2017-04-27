@@ -993,7 +993,7 @@ Vejam que no resultado do comando, o Git informa que foi criado um novo branch, 
 
 Depois de enviar, acessem o repositório online, para verificarem os arquivos e informações.
 
-![Branchs](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github.png)
+![github push](https://raw.githubusercontent.com/josemalcher/schoolofnet-git-github/master/img/github.png)
 
 Observem que todas as informações de commits e branchs foram enviadas, juntamente, com o nosso push. Significa que temos uma cópia do nosso repositório local em um repositório remoto, centralizando nosso projeto.
 
