@@ -55,6 +55,10 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Resolvendo conflitos](#parte24)
 
+[Git bare](#parte25)
+
+[git hook](#parte26)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -1473,6 +1477,22 @@ Temos a nossa ação completa e sem conflito algum. Isso gera um commit a mais e
 Esta situação não é muito comum, quando se trabalha sozinho em um projeto, mas quando se trabalha com vários branchs e em equipe, pode ser que vocês se deparem com esta situação. Nosso objetivo, com este módulo, foi ensinar a lidar com esta situação. Quando se trabalha em equipe, provavelmente, vocês podem ter que decidir o conflito, juntamente com outro desenvolvedor, que alterou o mesmo arquivo que você.
 
 Simulem mais um conflito como este, no projeto, para que resolvam sozinhos e pratiquem esta resolução de conflitos do Git.
+
+[Voltar ao Índice](#indice)
+
+---
+
+## <a name="parte25">Git bare</a>
+
+
+
+[Voltar ao Índice](#indice)
+
+---
+
+## <a name="parte25">Git hook</a>
+
+
 
 [Voltar ao Índice](#indice)
 
