@@ -933,7 +933,7 @@ Criem seus repositórios, para praticarem.
 
 ---
 
-## <link name="parte17">Primeiro push</a>
+## <a name="parte17">Primeiro push</a>
 
 Neste módulo vocês aprenderão a realizar o primeiro push.
 
@@ -1005,7 +1005,7 @@ Observem que todas as informações de commits e branchs foram enviadas, juntame
 
 ---
 
-## <link name="parte18">Dando push em outro branch</a>
+## <a name="parte18">Dando push em outro branch</a>
 Agora que já fizemos o push normal, enviando o branch master para o repositório remoto, ensinaremos como enviar um novo branch.
 
 Temos, em nosso exemplo, um branch chamado funcionalidade1. O procedimento é acessar este branch e, em seguida, dar um push deste repositório, para o Github.
