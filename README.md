@@ -51,6 +51,10 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Trabalhando com tags](#parte22)
 
+[Versionamento semântico](#parte23)
+
+[Resolvendo conflitos](#parte24)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -1312,4 +1316,164 @@ Desta forma, estamos subindo todas as tags, locais, para o repositório remoto.
 
 ---
 
+## <a name="parte23">Versionamento semântico</a>
 
+
+Já que falamos de versões, no módulo anterior, precisamos passar para vocês, um conceito de versionamento semântico.
+
+Versionamento semântico é uma forma, organizada, de versionar o software. Este assunto não está relacionado com Git e Github, mas acabam interligados, de uma maneira ou de outra.
+
+Existem 3 itens principais, como vocês podem ver no exemplo abaixo:
+
+```
+0.1.0
+```
+
+O primeiro item representa a versão principal, do sistema. Conhecido como Major version.
+
+O segundo item, representa uma subversão, ou uma versão dentro da versão principal. Conhecido como Minor version. Este item, geralmente, representa as funcionalidades dentro da versão principal, ou seja, uma segunda funcionalidade criada, poderíamos criar a versão 0.2.0.
+
+Precisamos estar atentos quando chegar a hora de atualizar um sistema. Fiquem atentos a esta questão de versionamento, porque da versão 0.1.0 para 0.2.0 pode ser que tenhamos algumas quebras de funcionamento e que precisarão ser corrigidas.
+
+O terceiro item é conhecido como PATCH e é utilizado para correções e melhorias, mas que não quebram a compatibilidade. Imaginem que foi encontrado um bug na versão 0.2.0 e foi corrigido. Atualizaremos para 0.2.1, desde que, esta correção ou melhoria, não quebre a compatibilidade. Se, por acaso, tenha esta quebra de compatibilidade, já seria o caso de criarmos mais uma minor version e criar a versão 0.3.0.
+
+Caso venhamos a criar a versão 1.0.0, alterando a Major Version, não temos obrigação nenhuma de manter a compatibilidade com as demais versões.
+
+A obrigatoriedade de manter a compatibilidade, vem da direita para esquerda, ou seja, qualquer alteração no patch, não pode afetar a compatibilidade da minor version e, do mesmo modo, qualquer alteração na minor version não pode afetar a compatibilidade da major version.
+
+Um exemplo real, que teve esta mudança, é o Zend Framework, que tinha a versão 1 e veio com a versão 2, quebrando toda compatibilidade, por ser uma versão muito diferente da primeira e com muitas outras funcionalidades. Mas isso não causou nenhum estranhamento, porque eles mudaram a Major Version do projeto.
+
+Quando forem criar o versionamento dos seus projetos, sempre levem este conceito em consideração, para quem for utilizar saber se pode ou não atualizar o projeto, sem que quebre, totalmente, o código.
+
+Este módulo serviu para que pudéssemos passar este conceito, que é simples, porém muito importante. Agora, vocês sabem que os desenvolvedores não saem criando versões, sem nenhum método específico e sem responsabilidade. Vocês tem que saber que muitos, podem estar utilizando o seu código. Quando disponibilizado para muitos, a responsabilidade sempre aumenta.
+
+[Voltar ao Índice](#indice)
+
+---
+
+## <a name="parte24">Resolvendo conflitos</a>
+
+Este módulo foi criado para ajudá-los com as dicas mais variadas, possíveis, do Git. Se estivermos falando de várias coisas, ao mesmo tempo, não fiquem preocupados, este módulo é misto, para que possamos abordar alguns pontos que vocês poderão se deparar, no dia a dia.
+
+Infelizmente, quando trabalhamos com repositórios, estamos sujeitos a nos deparar com conflitos, mesmo trabalhando sozinhos, em um único repositório.
+
+Para falarmos sobre os conflitos possíveis, utilizaremos nosso próprio exemplo. Estamos dentro do repositório aulagit. Verificamos se os branchs estavam no mesmo commit, percebemos que os branchs não estavam sincronizados. Rodamos o comando abaixo, para sincronizá-los.
+
+```
+$ git merge novobranch
+```
+
+Pronto, agora temos os dois branchs apontando para o mesmo commit final, ou seja, estão sincronizados.
+
+Alteraremos o arquivo arquivo-novobranch.php, colocando o seguinte conteúdo:
+
+```php
+<?php
+echo "novo branch -1";
+?>
+```
+
+Depois de alterarem, comitem esta alteração.
+
+```
+$ git commit -a -m "Mudando o novo branch -1"
+```
+
+Em seguida, acessem o branch, novobranch e, dentro dele, editem o mesmo arquivo, colocando o seguinte conteúdo.
+
+```php
+<?php
+echo "novo branch -2";
+?>
+```
+
+Depois comitaremos.
+
+```
+$ git commit -a -m "Mudando o novo branch -2"
+```
+
+Com estas alterações, podemos concluir que temos dois branchs, com dois diferentes commits, no mesmo arquivo. Neste caso, não existe uma mágica que resolva nossa situação, porque, nem matematicamente falando, o Git saberia o que fazer nesta situação. Tentem imaginar como ele decidiria qual commit assumir como sendo, o correto ou incorreto, para descartar.
+
+Para mostrar este conflito rodaremos o comando abaixo:
+
+```
+$ git merge master
+```
+
+Teremos o seguinte conflito, sendo mostrado pelo Git.
+
+Auto-merging arquivo-novobranch.php
+CONFLICT (content): Merge conflict in arquivo-novobranch.php
+Automatic merge failed; fix conflicts and then commit the result.
+Isso ocorre porque o Git, realmente, não sabe qual dos commits tomar como sendo o correto. Neste caso, temos que abrir o arquivo e analisar o código, para ver qual seria o correto. O Git nos ajuda neste momento. Para visualizar esta ajuda, abram o arquivo para editar e verão que o Git criou uma marcação.
+
+```php
+<<<<<<< HEAD
+echo "novo branch -2";
+=======
+echo "novo branch -1";
+?>
+>>>>>>> master
+```
+
+Observem que ele nos mostrou o que temos no arquivo do branch atual, que ele marca como HEAD, e nos mostra o que temos no branch master. Agora, chegou a hora de tomarmos uma decisão, porque o Git não conseguirá tomar esta decisão, sozinho.
+
+Antes de resolvermos o conflito, rodaremos o comando git status, para que consigam ver o que o Git nos informa.
+
+```
+On branch novobranch
+Your branch is ahead of 'origin/novobranch' by 1 commit.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+    both modified:   arquivo-novobranch.php
+```
+
+Notem que o Git nos mostrou uma terceira categoria, que ainda não tínhamos visto. Seria Unmerged paths, com a informação de both modified. Isso quer dizer que, existem dois arquivos e ambos estão modificados, em branchs diferentes.
+
+Resolvendo o conflito antes de rodar o merge
+Observem que, de acordo com o erro acima, temos que resolver o conflito e depois adicionar o arquivo para confirmar a solução do conflito. Em primeiro lugar, solucionaremos e, para fazer isso, basta apagarmos o que não queremos e deixarmos o correto.
+
+```php
+<?php
+echo "novo branch -2";
+?>
+```
+
+Ficaremos com o conteúdo acima, como sendo o correto. Após, teremos que adicionar o arquivo, para confirmarmos a resolução do conflito, como informamos acima.
+
+```
+$ git add arquivo-novobranch.php
+```
+
+Depois de adicionarem, deem outro git status, para verem a mensagem.
+
+```
+On branch novobranch
+Your branch is ahead of 'origin/novobranch' by 1 commit.
+  (use "git push" to publish your local commits)
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+```
+
+Temos a mensagem de que todos os conflitos foram resolvidos, mas que precisamos rodar o commit, para que a ação de merge seja concluída.
+
+```
+$ git commit -m "Resolvendo conflito"
+```
+
+Temos a nossa ação completa e sem conflito algum. Isso gera um commit a mais em nosso log, para informar que está tudo correto e sem conflitos.
+
+Esta situação não é muito comum, quando se trabalha sozinho em um projeto, mas quando se trabalha com vários branchs e em equipe, pode ser que vocês se deparem com esta situação. Nosso objetivo, com este módulo, foi ensinar a lidar com esta situação. Quando se trabalha em equipe, provavelmente, vocês podem ter que decidir o conflito, juntamente com outro desenvolvedor, que alterou o mesmo arquivo que você.
+
+Simulem mais um conflito como este, no projeto, para que resolvam sozinhos e pratiquem esta resolução de conflitos do Git.
+
+[Voltar ao Índice](#indice)
+
+---
