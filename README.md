@@ -5,7 +5,7 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 ---
 
-## Índice
+## <a name="indice">Índice</a>
 
 [Falando sobre sistemas de controle de versão](#parte1)
 
@@ -37,6 +37,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Criando chave para o github](#parte15)
 
+[Criando um repositório](#parte16)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -66,6 +68,9 @@ Há a possibilidade de criar releases como: 1.0, 1.0.1, 1.0.2, e assim por diant
 
 Preparem-se para entrarem no mundo de sistemas controladores de versões.
 
+
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte2">História do Git</a>
@@ -88,6 +93,8 @@ Em 2005, aproximadamente, surgiu o projeto do Git, que vem até hoje, sendo amad
 Quando pensarem em Git, é importante entenderem como este sistema surgiu e que ele quebrou diversos paradigmas de controle de versões, trabalhando de forma, descentralizada.
 
 Falaremos mais sobre isso, nos próximos módulos. Sempre lembrem que, quando falamos de Git, estamos falando de um sistema de controle de versão, descentralizado.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -119,6 +126,8 @@ No sistema antigo, isso era impossível, porque se criassem um branch, este bran
 Além de tudo, o Git oferece uma forma muito simples de trabalhar, vocês verão que, com apenas alguns comandos, já conseguem ter muito poder em suas mãos. Quanto mais utilizarem a ferramenta, mais prática ganharão e não temos dúvidas, de que vocês gostarão muito e nunca mais deixarão de utilizá-la.
 
 Esperamos que tenham entendido a diferença entra sistema de controle de versão centralizado e descentralizado.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -156,6 +165,8 @@ git config --global color.ui true
 Este comando configurará o Git para colorir os comandos e resultados de comandos, facilitando o entendimento de cada iteração. Esta configuração só tem efeito no terminal e no Git Bash, caso estejam utilizando o prompt do MS-DOS, esta configuração não surtirá efeito.
 
 Estamos com as configurações em dia e prontos para começar a utilizar o Git. Não fiquem espantados, realmente é muito fácil fazer esta configuração inicial.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -261,6 +272,8 @@ Façam testes e modificações, brinquem bastante com os comandos que acabamos d
 
 Acreditem! Se quiserem ser desenvolvedores, terão que dominar o Git em todos os seus projetos.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte6">Realizando primeiro commit</a>
@@ -332,6 +345,8 @@ O reset HEAD é responsável para desfazer o comando add.
 Vocês podem praticar e fazer seus commits para fixarem o conteúdo.
 
 Acreditem! Vocês utilizarão estes comandos, o tempo todo. Pratiquem muito.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -411,6 +426,8 @@ Gostaríamos de dizer que existem muitas outras opções para o comando git log.
 
 Como já falamos, não tentem decorar, mas pratiquem muito e deixem alguns comandos, principais, anotados para que possam relembrar, até que estes comandos se tornem familiares a vocês.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte8">Ignorando arquivos</a>
@@ -444,6 +461,8 @@ Depois de adicionado o arquivo no .gitignore, rodem o comando git status, novame
 Vocês encontrarão o arquivo .gitignore, que criamos para listar os arquivos ignorados, este sim deverá fazer parte do projeto e ser adicionado ao controle de versão.
 
 Vocês acabaram de aprender o conceito do arquivo .gitignore. Para trabalharem com ele, basta adicionarem os arquivos, que deverão ser ignorados, um em cada linha, dentro deste arquivo.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -510,6 +529,8 @@ Untracked files:
 ```
 
 Após prepararem todo o commit, deixando somente os arquivos que deverão fazer parte dele, basta realizarem o commit. Saibam que, depois do commit, vocês não conseguem, fazer mais nada, somente voltar a versão anterior. Façam tudo que tiverem que fazer, antes do commit.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -618,6 +639,8 @@ Isso significa que, vocês devem tomar muito cuidado com o parâmetro hard, a n�
 
 Desta forma, vocês podem trabalhar com as "idas e vindas" de suas versões. Basta praticarem, bastante, e fazerem testes para fixarem o conteúdo.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte11">Falando sobre branches</a>
@@ -655,6 +678,8 @@ Suponham que, temos outro desenvolvedor que criará um sistema de estoque e este
 Esta ramificação não tem limite, vocês podem ramificar o projeto de acordo com a necessidade que tiverem. O merge continua do mesmo jeito, mas, geralmente, costumamos dar um merge, de acordo com a hierarquia. Primeiro, daríamos um merge do sistema de estoque para o sistema de produtos e depois, outro merge, do sistema de produtos para o branch master, que é a aplicação raiz.
 
 Observem que é um assunto mais complexo, mas não é complicado para entender. Basta projetarem, muito bem a aplicação, e dividirem, corretamente, a equipe. Desta forma, o projeto caminha em paralelo, com diversas funcionalidades sendo desenvolvidas, ao mesmo tempo, e de forma organizada. O que é mais interessante, tudo versionado, podendo retornar e arrumar erros, em qualquer ponto do projeto.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -713,6 +738,8 @@ Lembrando que, existir um commit dentro de um branch, não significa que os arqu
 
 Já sabem o conceito. Basta criarem muitos branchs, arquivos diferentes em cada branch e sair trocando de um para outro, para testarem os commits. Desta forma, este processo se torna, automático e muito simples, para você. O melhor jeito de aprender é praticando.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte13">Merge e Rebase</a>
@@ -767,6 +794,8 @@ Observem que, primeiro ele organizou os commits, para depois fazer o mesmo traba
 
 Para verificarem este processo, basta rodarem um git log e terão o commit do branch funcionalidade1, antes do commit do master. Vale lembrar que, não haverá mais o commit do merge. Isso significa que estamos gerando um commit a menos.
 
+[Voltar ao Índice](#indice)
+
 ---
 
 ## <a name="parte14">Falando sobre o github</a>
@@ -788,6 +817,8 @@ Quando vocês logam no Github e acessam a página inicial, vocês tem o controle
 Com o Github, vocês acabam tendo a oportunidade de participar de grandes projetos, open sources, e acaba sendo uma vitrine enorme, para seus trabalhos. Também, às vezes, tem a oportunidade de participarem de um projeto real, que é muito mais vantajoso do que muitos outros projetos pessoais ou treinamentos e até mesmo, faculdades. Nem sempre isso acontece, mas é sempre muito bom, fazer parte de outros projetos e ajudá-los.
 
 O único problema é que, para você poder participar destes projetos open sources, vocês precisam saber das técnicas e dinâmicas do Github. É esta base que daremos, para que possam contribuir com o projeto que acharem melhor e mais proveitoso, para o crescimento de vocês.
+
+[Voltar ao Índice](#indice)
 
 ---
 
@@ -840,3 +871,58 @@ E seguida, copiem o código para adicionarem ao Github. Vocês podem abrir o arq
 Para cadastrarem no Github, acessem Account Settings e depois cliquem em SSH Keys. Neste local, observem que existe a possibilidade de cadastrarem diversas chaves. Criem uma nova chave. Vocês podem adicionar uma descrição para cada chave, para saberem a qual máquina ela pertence.
 
 No campo da chave, vocês colarão o conteúdo copiado e clicarão em add key. Depois disso, já teremos uma nova chave configurada e, a partir deste momento, todas as operações que forem efetuadas, do computador para o repositório online, não precisarão mais de autenticação por login e senha.
+
+[Voltar ao Índice](#indice)
+
+---
+
+## <a name="parte16">Criando um repositório</a>
+
+Mostraremos como criar um novo repositório no Github, apesar de ser muito fácil.
+
+Agora que vocês já possuem uma conta no Github e já configuraram a chave de segurança, basta começar a criarem repositórios e a desenvolver.
+
+Para criarem um novo repositório, basta acessarem o profile e depois clicar em Repositories. Neste local, vocês clicam em New.
+
+Na próxima página, vocês preencherão os dados do repositório como: nome, descrição, público ou privado e tem a opção de iniciar o repositório com um arquivo README.
+
+O repositório privado só é possível, contratando o serviço do Github. Os repositórios públicos, são gratuitos e ilimitados.
+
+Todo repositório estará no endereço padrão do Github, que será o endereço do Github + seu usuário + nome do repositório. Este é um padrão de URL que representa cada repositório criado.
+
+Quando vocês escolherem entre, iniciar com o arquivo README ou não, existe uma particularidade. Quando não selecionamos nada, nosso repositório é iniciado, totalmente, vazio, inclusive, sem nenhum branch criado, nem o branch master. Neste caso, quando fizermos o primeiro commit, teremos que passar os parâmetros para que este branch seja criado.
+
+Caso vocês selecionem a opção de iniciar com o arquivo readme, o branch já será criado, automaticamente.
+
+Se vocês escolherem a opção de criar com um arquivo, precisarão executar uma clonagem deste repositório, em suas máquinas e, somente, depois, adicionarem os arquivos do projeto para depois, comitá-los.
+
+No primeiro caso, vocês poderão trabalhar da mesma maneira que estamos trabalhando até agora. Criando uma pasta, iniciando o repositório Git e adicionando os arquivos. A única diferença é que, vocês deverão configurar o repositório remoto, adicionando o endereço/url, do repositório criado.
+
+Vejam o procedimento, que o próprio Github orienta fazer, inicialmente, para deixar o reposotório totalmente configurado e linkado.
+
+```
+$ touch README.md
+$ git init
+$ git add README.md
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/schoolofnetcom/git-code-education.git
+$ git push -u origin master
+```
+
+Observem que, até a quarta linha, já passamos a vocês, que é o procedimento de criação, adição e commit natural. O segredo de linkar o repositório local com o remoto, está no quinto comando:
+
+```
+$ git remote add origin https://github.com/schoolofnetcom/git-code-education.git
+```
+
+E o primeiro push, que cria o nosso branch master:
+
+```
+$ git push -u origin master
+```
+
+Depois destes procedimentos, o repositório já está criado. No próximo módulo, daremos continuidade.
+
+Criem seus repositórios, para praticarem.
+
+---
