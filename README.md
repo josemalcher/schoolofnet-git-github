@@ -45,6 +45,8 @@ Link do curso: https://www.schoolofnet.com/curso-git-e-github
 
 [Fazendo clone](#parte19)
 
+[Push e Pull com novo branch](#parte20)
+
 ---
 
 ## <a name="parte1">Falando sobre sistemas de controle de versão</a>
@@ -1151,4 +1153,82 @@ Agora vocês já conseguem clonar, completamente, qualquer repositório do Githu
 
 ---
 
+## <a name="parte20">Push e Pull com novo branch</a>
 
+Para finalizarmos o conceito de push e pull, faremos uma simulação para facilitar o entendimento.
+
+Suponham que somos uma equipe de colaboradores e temos o repositório git-code-education. Para isso, devemos ter, pelo menos, dois clones de nosso repositório, para simular dois colaboradores.
+
+Criem uma pasta chamada gitCode e movam o repositório clonado, no módulo anterior, para dentro desta pasta. Em seguida, façam outro clone com o nome de aulagit.
+
+```
+$ git clone https://github.com/schoolofnetcom/git-code-education.git aulagit
+mkdir gitCode
+mv aulagit/ gitCode/
+mv git-code-education/ gitCode/
+```
+
+Nos comandos acima, fizemos todas estas configurações. Temos uma pasta com dois repositórios, idênticos, e conectados ao mesmo repositório, remoto. Suponham que, cada repositório seja um colaborador diferente, com máquinas diferentes e que, cada um, fará uma alteração diferente. Faremos isso para que entendam o processo e como o Github trabalha.
+
+Agora que temos os dois ambientes, faremos uma alteração qualquer, em aulagit, e subiremos para o repositório, remoto. Em seguida, faremos um alteração no git-code-education e tentaremos subir para o repositório remoto, também. Vocês verão que o primeiro push será aceito, mas o segundo não conseguiremos realizar porque, primeiro, teremos que efetuar um comando pull, para atualizarmos a alteração feita em aulagit, e somente depois, conseguiremos subir a alteração de git-code-education. Sempre que tiverem alguma alteração no repositório remoto, deveremos atualizar, para depois subirmos qualquer outra alteração, local.
+
+Alteramos o arquivo teste.php, da pasta aulagit, depois comitamos e damos um push, para o repositório remoto. Isso quer dizer que o desenvolvedor da pasta git-code-education não possui, ainda, esta alteração. Para terem certeza disso, abram a pasta git-code-education e o arquivo que vocês alteraram em aulagit. Vocês verão que a alteração feita em aulagit, ainda não existe.
+
+Para fazerem a sincronização, vocês deverão fazer um pull, que é o inverso do comando push. Dentro da pasta git-code-education, rodem o comando abaixo:
+
+```
+$ git pull origin master
+```
+
+Depois de rodarem este comando, vocês podem abrir, novamente, o arquivo e já poderão ver as alterações que fizeram, porque os dois repositórios estão sincronizados.
+
+Quando trabalhamos em equipe, sempre, devemos verificar se o repositório local, está sincronizado com o repositório remoto e, depois vocês podem enviar suas alterações. Caso queiram, somente, atualizar o repositório, antes de começarem a trabalhar, basta rodarem o git pull.
+
+Criaremos um novo arquivo, na pasta git-code-education, subiremos para o repositório remoto. Em seguida, entraremos na pasta aulagit e faremos um pull para pegar este novo arquivo. Faremos isso, utilizando um novo branch.
+
+```
+$ git checkout -b novobranch
+$ touch arquivo-novobranch.php
+$ git add arquivo-novobranch.php
+$ git commit -m "Arquivo - exemplo de novo branch"
+$ git push origin novobranch
+```
+
+Executamos os comandos acima, em sequência, para conseguirmos exemplificar o processo de criação de um arquivo, em um novo branch. Primeiro, criamos o branch, depois o arquivo, adicionamos, comitamos e, por último, subimos para o repositório remoto, criando um novo branch.
+
+Observem que, antes de darmos o push, para o repositório remoto, o branch só existia localmente, depois ele foi criado remotamente, junto com o comando.
+
+Agora, saiam do repositório git-code-education e acessem o aulagit. Vocês poderão ver que não existe o arquivo arquivo-novobranch.php, nem o branch novobranch.
+
+Como já falamos, quando queremos sincronizar com o repositório remoto, temos que rodar o comando pull. Portanto, rodem os comandos abaixo:
+
+```
+$ git pull
+$ git branch -a
+$ git checkout -b novobranch origin/novobranch
+```
+
+O comando pull, sincronizou os repositórios. O branch -a rodamos para enxergar os novos branchs e para sincronizá-los. E, por último, criamos o branch local, com o mesmo nome e linkamos com o branch, online.
+
+Desta forma temos tudo sincronizado, tanto repositório, quanto branchs.
+
+Antes do pull
+
+```
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/funcionalidade1
+  remotes/origin/master
+```
+
+Depois do pull
+
+```
+  * master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/funcionalidade1
+  remotes/origin/master
+  remotes/origin/novobranch
+```
+
+Pratiquem bastante, para que possam dominar estas idas e vindas de repositórios locais para repositórios remotos, e vice versa.
