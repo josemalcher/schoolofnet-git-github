@@ -1484,14 +1484,107 @@ Simulem mais um conflito como este, no projeto, para que resolvam sozinhos e pra
 
 ## <a name="parte25">Git bare</a>
 
+Ensinaremos a trabalharem de forma remota, mas localmente, criando um repositório remoto, em nossa máquina.
 
+Quando vocês rodam um git init, estão criando um novo repositório git, em que conseguem trabalhar remotamente e localmente.
+
+O Git possui um tipo de repositório que é utilizado, apenas, para servir, ou seja, ele fica preparado, somente, para receber os commits e os pushs que vocês executarem e, também, libera os pulls, quando vocês solicitarem.
+
+Vamos mostrar na prática.
+
+Saiam da pasta atual, do nosso exemplo, e criem uma nova pasta chamada, aulagit.git. Depois, acessem esta pasta ```$ cd aulagit.git/```.
+
+Agora, estando dentro da pasta criada, rodem o seguinte comando:
+
+```
+$ git init --bare
+```
+
+O único objetivo deste repositório, é servir. Não trabalharemos dentro dele, pois ele cria a mesma estrutura de pastas que o comando git init, mas não de forma oculta.
+
+Para visualizarem, rodem $ ls, dentro da pasta e vocês poderão visualizar a estrutura das pastas.
+
+Voltaremos ao repositório aulagit, que faz parte dos nossos exemplos, e linkaremos este repositório, ao nosso repositório bare, rodando o seguinte comando:
+
+```
+$ git remote add local ssh://localhost/Users/mac/www/aulagit.git
+```
+
+Observem que, como é um repositório remoto, mas está localmente, não o chamamos de origin, o nomeamos como local e passamos o caminho da pasta da nossa máquina, de forma remota.
+
+Depois de linkar, acessem o branch master:
+
+```
+$ git checkout master
+```
+
+Em seguida, falta darem um push, no repositório local, para verem se está funcionando.
+
+```
+$ git push local master
+```
+
+Teremos o seguinte resultado:
+
+```
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (20/20), 1.63 KiB | 0 bytes/s, done.
+Total 20 (delta 7), reused 0 (delta 0)
+To file:///Users/mac/www/aulagit.git/
+ * [new branch]      master -> master
+```
+
+Pronto! Já temos um repositório local, trabalhando como se fosse um repositório remoto.
 
 [Voltar ao Índice](#indice)
 
 ---
 
-## <a name="parte25">Git hook</a>
+## <a name="parte26">Git hook</a>
 
+Agora que vocês já sabem que existe um tipo de repositório que só tem a finalidade de servir e para trabalhar como repositório central. Mostraremos como podemos fazer o deploy, automatizado.
+
+Suponham que estejam no seu repositório Git, trabalhando, normalmente, em suas máquinas, e toda vez que vocês realizarem um push, este repositório central, copiará estes arquivos para uma outra pasta, onde estará hospedado o site de vocês, por exemplo. Isso quer dizer que, vocês trabalharão, localmente e, quando derem um push no site, será atualizado junto com sua versão local. Esta funcionalidade é, realmente, muito interessante, o que faz vocês ganharem tempo.
+
+Para fazerem esta configuração, acessem o repositório aulagit.git do tipo bare, que criamos no módulo anterior, depois acessem a pasta hooks e criem um arquivo chamado post-receive. Os hooks são ganchos que, quando determinada ação acontece, dispara outras ações, pré-configuradas. Este arquivo, post-receive, nada mais é do que um outro gancho, que será executado, toda vez que dispararmos um push.
+
+Dentro deste arquivo adicionem o seguinte código:
+
+```bash
+#!/bin/sh
+GIT\_WORK\_TREE=/Users/wesley/gitCode/meusite.com.br git checkout -f
+```
+
+A primeira linha indica que estamos trabalhando com comando do shell e a segunda, é a configuração que indica para onde os arquivos serão copiados, quando o push for executado. Obervem que, passamos o parâmetro -f para que isso aconteça.
+
+Depois disso, deem permissão de execução para este arquivo, rodando o comando ```$ chmod +x post-receive```. Pronto, já temos o nosso hook configurado.
+
+Devemos criar a pasta meusite.com.br, que configuramos acima, para que no momento do push, a mágica aconteça e os arquivos sejam copiados, automaticamente, para este endereço. Criaremos, dentro da pasta gitCode.
+
+```
+mkdir meusite.com.br
+```
+
+Caso queiram confirmar, abram esta pasta, antes de dar qualquer push, para vocês verem que ela está vazia e, depois do push ela terá os arquivos copiados.
+
+Acessem o repositório aulagit e alterem o arquivo arquivo.txt, adicionem e comitem este arquivo e realizem o push. Notem que, temos duas opções de push:
+
+- git push origin master
+- git push local master
+
+O primeiro, enviamos para o repositório remoto do Github e o segundo realiza o push em nosso repositório remoto local e, consequentemente, em nossa pasta meusite.com.br, que acabamos de configurar. Depois que o repositório bare receber o push, ele executará o push post-receive e enviará os arquivos para a pasta que configuramos.
+
+O Git pedirá a senha do usuário da máquina para concluir a operação.
+
+Depois que os dois push forem realizados, vocês podem acessar, novamente, a pasta meusite.com.br e verão que os arquivos já estarão lá dentro, assim como esperado. Desta forma, resolvemos nosso problema e ganhamos muito tempo de deploy, onde precisaríamos subir por FTP ou acessando o servidor de alguma outra forma.
+
+Suponham que o repositório do tipo bare, esteja no servidor de hospedagem do site e ele utilize o hook post-receive para direcionar os arquivos para a pasta public_html, por exemplo. É desta forma, que conseguimos fazer o deploy online, utilizando o Git.
+
+Esta, não é a melhor forma do mundo de configurar o deploy, porque se vocês alterarem arquivos de senha, por exemplo, vocês terão problemas, mas de forma geral, é uma opção muito interessante e que, em muitos casos, pode facilitar.
+
+Estamos fazendo estas configurações, utilizando o ambiente Linux/Unix. Procurem trabalhar com o mesmo ambiente para que não tenham nenhum problema.
 
 
 [Voltar ao Índice](#indice)
